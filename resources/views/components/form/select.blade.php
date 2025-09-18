@@ -6,7 +6,7 @@
   'placeholder' => null,
 ])
 @php
-  $base = 'w-full rounded-lg border-[1.5px] border-stroke bg-transparent px-5 py-3 pr-10 text-black outline-none transition focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary';
+  $base = 'w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 pr-10 text-sm text-gray-800 focus:border-primary focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300';
   $value = old($name, $attributes->get('value'));
 @endphp
 <div {{ $attributes->class(['space-y-1']) }}>

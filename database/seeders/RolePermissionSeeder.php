@@ -42,5 +42,8 @@ class RolePermissionSeeder extends Seeder
 
         // Create user role
     $userRole = Role::firstOrCreate(['name' => 'warga', 'guard_name' => 'api']);
+
+        // Create collector role
+    $collectorRole = Role::firstOrCreate(['name' => 'collector', 'guard_name' => 'api']);
     }
 }

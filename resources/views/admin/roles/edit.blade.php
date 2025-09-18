@@ -5,7 +5,7 @@
 @section('content')
 <div class="grid grid-cols-12 gap-4 md:gap-6">
   <div class="col-span-12">
-    <div class="rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
+  <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03]">
       <h2 class="mb-6 text-2xl font-bold text-black dark:text-white">Edit Role</h2>
 
       @if($errors->any())
@@ -27,7 +27,7 @@
           <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
             @php($selectedMenus = $getmenus ?? [])
             @foreach($menus as $menu)
-              <div class="rounded-lg border border-stroke p-4 dark:border-strokedark">
+              <div class="rounded-lg border border-gray-200 p-4 dark:border-gray-800">
                 <x-form.checkbox name="menu_id[]" :value="$menu->id" :checked="in_array($menu->id, $selectedMenus)" label="{{ $menu->nama_menu }}" />
                 @if($menu->submenus && $menu->submenus->count())
                   <div class="mt-2 space-y-1 pl-6">

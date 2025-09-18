@@ -8,7 +8,7 @@
   $isChecked = old($name, $checked) ? true : false;
 @endphp
 <label class="flex items-center gap-2 text-sm font-medium text-black dark:text-white">
-  <input type="checkbox" name="{{ $name }}" value="{{ $value }}" @checked($isChecked) class="h-4 w-4 rounded border-stroke text-primary focus:ring-primary/50 dark:border-form-strokedark dark:bg-form-input" />
+  <input type="checkbox" name="{{ $name }}" value="{{ $value }}" @checked($isChecked) class="h-4 w-4 rounded border border-gray-300 text-primary focus:ring-primary/50 dark:border-gray-600 dark:bg-gray-800" />
   <span>{{ $label ?? $slot }}</span>
 </label>
 @error($name)

@@ -9,9 +9,9 @@
   $colCount = count($headers);
 @endphp
 
-<div class="overflow-x-auto rounded-md border border-gray-200 dark:border-strokedark">
+<div class="overflow-x-auto rounded-2xl border border-gray-200 dark:border-gray-800">
   <table class="w-full text-sm table-auto">
-    <thead class="bg-gray-100 dark:bg-meta-4/60">
+    <thead class="bg-gray-100 dark:bg-white/[0.03]">
       <tr class="text-left">
         @foreach($headers as $h)
           @php
@@ -22,7 +22,7 @@
         @endforeach
       </tr>
     </thead>
-    <tbody class="divide-y divide-gray-200 dark:divide-strokedark">
+    <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
       @if(trim($slot) === '')
         <tr>
           <td colspan="{{ $colCount }}" class="px-4 py-6 text-center text-gray-500 dark:text-gray-400">{!! $empty !!}</td>

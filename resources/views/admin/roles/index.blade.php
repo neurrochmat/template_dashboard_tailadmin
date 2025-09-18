@@ -1,0 +1,44 @@
+@extends('layouts.master')
+
+@section('title','Roles')
+
+@section('content')
+<div class="grid grid-cols-12 gap-4 md:gap-6">
+  <div class="col-span-12">
+    <div class="rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-bold text-black dark:text-white">Roles Management</h2>
+          <p class="text-sm text-gray-500 mt-1">Definisikan & atur hak akses.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <x-button as="a" href="{{ route('manage-role.create') }}" variant="primary">Add Role</x-button>
+        </div>
+      </div>
+
+      {{-- Flash messages now handled globally in layout --}}
+
+      <x-table :headers="[
+        ['label'=>'Name','class'=>'min-w-[200px]'],
+        ['label'=>'Actions']
+      ]" empty="No roles found.">
+        @foreach($roles as $role)
+          <x-table.row>
+            <x-table.cell>{{ $role->name }}</x-table.cell>
+            <x-table.cell>
+              <div class="flex items-center gap-2">
+                <x-button as="a" href="{{ route('manage-role.edit', $role->id) }}" variant="secondary" size="sm" class="dark:border-gray-600 dark:hover:border-gray-500">Edit</x-button>
+                <form action="{{ route('manage-role.destroy', $role->id) }}" method="POST" onsubmit="return confirm('Delete this role?')">
+                  @csrf
+                  @method('DELETE')
+                  <x-button type="submit" variant="danger" size="sm" class="dark:bg-red-600 dark:hover:bg-red-500">Delete</x-button>
+                </form>
+              </div>
+            </x-table.cell>
+          </x-table.row>
+        @endforeach
+      </x-table>
+    </div>
+  </div>
+</div>
+@endsection
